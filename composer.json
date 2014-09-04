@@ -1,0 +1,52 @@
+{
+    "name": "contao-community-alliance/build-system-tool-branch-alias-validation",
+    "description": "Validation tool to ensure that all branches are ahead of the most recent tag.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name":"Christian Schiffler",
+            "email":"c.schiffler@cyberspectrum.de",
+            "homepage":"http://www.cyberspectrum.de",
+            "role":"Developer"
+        },
+        {
+            "name":"Tristan Lins",
+            "email":"tristan.lins@bit3.de",
+            "homepage":"http://bit3.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/contao-community-alliance/build-system-tool-branch-alias-validation/issues",
+        "irc":"irc://irc.freenode.org/contao.dev",
+        "source":"https://github.com/contao-community-alliance/build-system-tool-branch-alias-validation"
+    },
+    "autoload": {
+        "psr-4": {
+            "ContaoCommunityAlliance\\BuildSystem\\Tool\\BranchAliasValidation\\" : "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ContaoCommunityAlliance\\BuildSystem\\Tool\\BranchAliasValidation\\Test\\" : "tests"
+        }
+    },
+    "require": {
+        "php": ">=5.3.4",
+        "contao-community-alliance/build-system-repository-git": "~1.0",
+        "symfony/console": "~2.3"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "pdepend/pdepend": "1.1.*",
+        "phpunit/phpunit": ">=3.7.10,<4-dev"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "bin": ["bin/validate-branch-alias.php"],
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
