@@ -86,9 +86,21 @@ class ValidateBranchAlias extends Command
         $this->input  = $input;
         $this->output = $output;
 
+        $git      = new GitRepository($this->input->getArgument('git-dir'));
+        $branches = $git->branch()->listBranches()->getNames();
         $composer = json_decode(file_get_contents($input->getArgument('git-dir') . '/composer.json'), true);
         foreach ($composer["extra"]["branch-alias"] as $branch => $alias) {
-            $tag        = $this->getTagFromBranch($this->simplifyBranch($branch));
+            $simpleBranch = $this->simplifyBranch($branch);
+            if (!in_array($simpleBranch, $branches)) {
+                if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity()) {
+                    $output->writeln(
+                        "<info>Skipping non existant branch $branch($alias).</info>"
+                    );
+                }
+                continue;
+            }
+
+            $tag        = $this->getTagFromBranch($simpleBranch);
             if (!$this->validate($tag, $alias)) {
                 $output->writeln(
                     "<error>The branch alias $branch($alias) is behind the latest branch tag $tag!</error>"
