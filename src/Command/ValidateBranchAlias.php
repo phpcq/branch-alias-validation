@@ -108,6 +108,7 @@ class ValidateBranchAlias extends Command
         $this->input  = $input;
         $this->output = $output;
 
+        $exitCode = 0;
         $git      = new GitRepository($this->input->getArgument('git-dir'));
         $branches = $git->branch()->listBranches()->getNames();
         $composer = json_decode(file_get_contents($input->getArgument('git-dir') . '/composer.json'), true);
@@ -144,7 +145,7 @@ class ValidateBranchAlias extends Command
                         $alias
                     )
                 );
-                return 1;
+                $exitCode = 1;
             } else {
                 if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity()) {
                     $output->writeln(
@@ -158,6 +159,6 @@ class ValidateBranchAlias extends Command
             }
         }
 
-        return 0;
+        return $exitCode;
     }
 }
