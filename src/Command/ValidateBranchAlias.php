@@ -94,10 +94,10 @@ class ValidateBranchAlias extends Command
      */
     public function validate($tag, $alias)
     {
-        $simpleAlias  = preg_replace("~(\.x)?-dev~", "", $alias);
+        $simpleAlias  = preg_replace('~(\.x)?-dev~', '', $alias);
         $versionLevel = count(explode('.', $simpleAlias));
         $reducedTag   = implode('.', array_slice(explode('.', $tag), 0, $versionLevel));
-        return version_compare($reducedTag, $simpleAlias, "<=");
+        return version_compare($reducedTag, $simpleAlias, '<=');
     }
 
     /**
@@ -111,18 +111,22 @@ class ValidateBranchAlias extends Command
         $git      = new GitRepository($this->input->getArgument('git-dir'));
         $branches = $git->branch()->listBranches()->getNames();
         $composer = json_decode(file_get_contents($input->getArgument('git-dir') . '/composer.json'), true);
-        foreach ($composer["extra"]["branch-alias"] as $branch => $alias) {
+        foreach ($composer['extra']['branch-alias'] as $branch => $alias) {
             $simpleBranch = $this->simplifyBranch($branch);
             if (!in_array($simpleBranch, $branches)) {
                 if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity()) {
                     $output->writeln(
-                        "<info>Skipping non existant branch $branch($alias).</info>"
+                        sprintf(
+                            '<info>Skipping non existing branch %s(%s)</info>',
+                            $branch,
+                            $alias
+                        )
                     );
                 }
                 continue;
             }
 
-            $tag        = $this->getTagFromBranch($simpleBranch);
+            $tag = $this->getTagFromBranch($simpleBranch);
             // No tag yet, therefore definately before any version.
             if ($tag === null) {
                 $output->writeln(
@@ -134,13 +138,21 @@ class ValidateBranchAlias extends Command
                 );
             } elseif (!$this->validate($tag, $alias)) {
                 $output->writeln(
-                    "<error>The branch alias $branch($alias) is behind the latest branch tag $tag!</error>"
+                    sprintf(
+                        '<error>The branch alias %s(%s) is behind the latest branch tag $tag!</error>',
+                        $branch,
+                        $alias
+                    )
                 );
                 return 1;
             } else {
                 if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity()) {
                     $output->writeln(
-                        "<info>Branch alias $branch($alias) is ahead of the latest branch tag.</info>"
+                        sprintf(
+                            '<info>Branch alias %s(%s) is ahead of the latest branch tag.</info>',
+                            $branch,
+                            $alias
+                        )
                     );
                 }
             }

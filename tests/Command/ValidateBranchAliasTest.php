@@ -11,12 +11,7 @@
  */
 namespace ContaoCommunityAlliance\BuildSystem\Tool\BranchAliasValidation\Test\Command;
 
-use ContaoCommunityAlliance\BuildSystem\Repository\GitRepository;
 use ContaoCommunityAlliance\BuildSystem\Tool\BranchAliasValidation\Command\ValidateBranchAlias;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ValidateBranchAliasTest
@@ -78,8 +73,7 @@ class ValidateBranchAliasTest extends \PHPUnit_Framework_TestCase
                     'tag'   => '4.0.0-beta20',
                     'alias' => '2.x-dev',
                 ),
-            ) as $entry
-        ) {
+            ) as $entry) {
             $this->assertFalse(
                 $command->validate($entry['tag'], $entry['alias']),
                 $entry['tag'] . ' <= ' . $entry['alias']
