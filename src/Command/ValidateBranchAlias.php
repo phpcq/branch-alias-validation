@@ -38,6 +38,9 @@ class ValidateBranchAlias extends Command
      */
     protected $output;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function configure()
     {
         $this
@@ -51,11 +54,25 @@ class ValidateBranchAlias extends Command
             );
     }
 
+    /**
+     * Cut the "dev-" prefix from a branch.
+     *
+     * @param string $branch The branch to simplify.
+     *
+     * @return string
+     */
     protected function simplifyBranch($branch)
     {
         return substr($branch, 4);
     }
 
+    /**
+     * Retrieve the latest tag from a branch.
+     *
+     * @param string $branch The branch name to retrieve the tag from.
+     *
+     * @return null|string Returns null when no tag has been found, the tag name otherwise.
+     */
     protected function getTagFromBranch($branch)
     {
         $git  = new GitRepository($this->input->getArgument('git-dir'));
@@ -69,9 +86,9 @@ class ValidateBranchAlias extends Command
      *
      * Returns true on success, the name of the offending tag on failure.
      *
-     * @param  string $tag   The tag to check.
+     * @param string $tag   The tag to check.
      *
-     * @param  string $alias The alias for the given branch.
+     * @param string $alias The alias for the given branch.
      *
      * @return bool|string
      */
@@ -83,6 +100,9 @@ class ValidateBranchAlias extends Command
         return version_compare($reducedTag, $simpleAlias, "<=");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->input  = $input;
