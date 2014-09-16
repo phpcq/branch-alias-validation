@@ -58,8 +58,10 @@ class ValidateBranchAlias extends Command
 
     protected function getTagFromBranch($branch)
     {
-        $git      = new GitRepository($this->input->getArgument('git-dir'));
-        return trim($git->describe()->tags()->execute($branch));
+        $git  = new GitRepository($this->input->getArgument('git-dir'));
+        $tag  = trim($git->describe()->tags()->always()->execute($branch));
+        $hash = trim($git->revParse()->short(false)->execute($branch));
+        return $hash !== $tag ? $tag : null;
     }
 
     /**
@@ -101,7 +103,16 @@ class ValidateBranchAlias extends Command
             }
 
             $tag        = $this->getTagFromBranch($simpleBranch);
-            if (!$this->validate($tag, $alias)) {
+            // No tag yet, therefore definately before any version.
+            if ($tag === null) {
+                $output->writeln(
+                    sprintf(
+                        '<comment>Branch alias %s(%s) has not been tagged yet.</comment>',
+                        $branch,
+                        $alias
+                    )
+                );
+            } elseif (!$this->validate($tag, $alias)) {
                 $output->writeln(
                     "<error>The branch alias $branch($alias) is behind the latest branch tag $tag!</error>"
                 );
