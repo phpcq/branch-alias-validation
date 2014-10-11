@@ -1,16 +1,18 @@
-<?xml version="1.0"?>
-<project name="composer client" default="test">
-    <target name="phpunit">
-        <exec dir="${basedir}" executable="vendor/bin/phpunit" failonerror="false" />
-    </target>
-    <target name="phpcs">
-        <exec dir="${basedir}" executable="vendor/bin/phpcs" failonerror="true">
-            <arg line="--standard=PSR2 ${basedir}/src"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This project is using the Contao Community Alliance Build System (CCABS)
+
+ For documentation visit:
+   https://github.com/contao-community-alliance/build-system
+
+-->
+<project name="build system all tasks" default="build">
+    <import file="vendor/contao-community-alliance/build-system/ccabs.main.xml" />
+
+    <!-- we have to override the command as otherwise ccabs won't find it. We are the root repository. -->
+    <target name="branch-alias-validation">
+        <exec dir="${basedir}" executable="bin/validate-branch-alias.php" failonerror="true" taskname="branch-alias-validation">
+            <arg line="${basedir}"/>
         </exec>
     </target>
-    <target name="branch-alias">
-        <exec dir="${basedir}" executable="bin/validate-branch-alias.php" failonerror="true">
-        </exec>
-    </target>
-    <target name="test" depends="phpunit,phpcs,branch-alias"/>
 </project>

@@ -37,9 +37,7 @@
         "symfony/console": "~2.3"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "*",
-        "pdepend/pdepend": "1.1.*",
-        "phpunit/phpunit": ">=3.7.10,<4-dev"
+        "contao-community-alliance/build-system-all-tasks": "~1.0"
     },
     "extra": {
         "branch-alias": {
