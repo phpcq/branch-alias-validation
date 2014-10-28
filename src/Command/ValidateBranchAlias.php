@@ -112,6 +112,14 @@ class ValidateBranchAlias extends Command
         $git      = new GitRepository($this->input->getArgument('git-dir'));
         $branches = $git->branch()->listBranches()->getNames();
         $composer = json_decode(file_get_contents($input->getArgument('git-dir') . '/composer.json'), true);
+
+        if (!isset($composer['extra']['branch-alias'])) {
+            if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity()) {
+                $output->writeln('<info>No branch aliases found, skipping test.</info>');
+            }
+            return;
+        }
+
         foreach ($composer['extra']['branch-alias'] as $branch => $alias) {
             $simpleBranch = $this->simplifyBranch($branch);
             if (!in_array($simpleBranch, $branches)) {
