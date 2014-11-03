@@ -231,12 +231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/contao-community-alliance/build-system.git",
-                "reference": "105ccc1a01fc1b591c3e2fb31cc7cc32ab605892"
+                "reference": "40a6cdfc9f42299dcc008ee8d484f11a373fe91a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contao-community-alliance/build-system/zipball/105ccc1a01fc1b591c3e2fb31cc7cc32ab605892",
-                "reference": "105ccc1a01fc1b591c3e2fb31cc7cc32ab605892",
+                "url": "https://api.github.com/repos/contao-community-alliance/build-system/zipball/40a6cdfc9f42299dcc008ee8d484f11a373fe91a",
+                "reference": "40a6cdfc9f42299dcc008ee8d484f11a373fe91a",
                 "shasum": ""
             },
             "suggest": {
@@ -268,7 +268,7 @@
                 }
             ],
             "description": "CCABS base system.",
-            "time": "2014-10-28 15:48:42"
+            "time": "2014-10-30 09:54:37"
         },
         {
             "name": "contao-community-alliance/build-system-all-tasks",
