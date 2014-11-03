@@ -148,9 +148,10 @@ class ValidateBranchAlias extends Command
             } elseif (!$this->validate($tag, $alias)) {
                 $output->writeln(
                     sprintf(
-                        '<error>The branch alias %s(%s) is behind the latest branch tag $tag!</error>',
+                        '<error>The branch alias %s(%s) is behind the latest branch tag %s!</error>',
                         $branch,
-                        $alias
+                        $alias,
+                        $tag
                     )
                 );
                 $exitCode = 1;
