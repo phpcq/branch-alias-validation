@@ -117,7 +117,7 @@ class ValidateBranchAlias extends Command
             if (OutputInterface::VERBOSITY_VERBOSE <= $output->getVerbosity()) {
                 $output->writeln('<info>No branch aliases found, skipping test.</info>');
             }
-            return;
+            return 0;
         }
 
         foreach ($composer['extra']['branch-alias'] as $branch => $alias) {
