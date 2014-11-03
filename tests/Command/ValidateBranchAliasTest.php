@@ -47,6 +47,10 @@ class ValidateBranchAliasTest extends \PHPUnit_Framework_TestCase
                     'tag'   => '2.0.0-beta20',
                     'alias' => '3.x-dev',
                 ),
+                array(
+                    'tag'   => '0.14-1-g9d5de05',
+                    'alias' => '0.14.x-dev',
+                ),
             ) as $entry
         ) {
             $this->assertTrue(
@@ -73,6 +77,10 @@ class ValidateBranchAliasTest extends \PHPUnit_Framework_TestCase
                     'tag'   => '4.0.0-beta20',
                     'alias' => '2.x-dev',
                 ),
+                 array(
+                     'tag'   => '0.14-1-g9d5de05',
+                     'alias' => '0.13.x-dev',
+                 ),
             ) as $entry) {
             $this->assertFalse(
                 $command->validate($entry['tag'], $entry['alias']),

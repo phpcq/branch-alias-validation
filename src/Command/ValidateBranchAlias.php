@@ -96,7 +96,9 @@ class ValidateBranchAlias extends Command
     {
         $simpleAlias  = preg_replace('~(\.x)?-dev~', '', $alias);
         $versionLevel = count(explode('.', $simpleAlias));
-        $reducedTag   = implode('.', array_slice(explode('.', $tag), 0, $versionLevel));
+        $reducedTag   = preg_replace('~-.*$~', '', $tag);
+        $reducedTag   = implode('.', array_slice(explode('.', $reducedTag), 0, $versionLevel));
+
         return version_compare($reducedTag, $simpleAlias, '<=');
     }
 
