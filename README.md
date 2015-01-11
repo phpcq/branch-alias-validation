@@ -1,8 +1,8 @@
-[![Version](http://img.shields.io/packagist/v/contao-community-alliance/build-system-tool-branch-alias-validation.svg?style=flat-square)](https://packagist.org/packages/contao-community-alliance/build-system-tool-branch-alias-validation)
-[![Stable Build Status](http://img.shields.io/travis/contao-community-alliance/build-system-tool-branch-alias-validation/master.svg?style=flat-square)](https://travis-ci.org/contao-community-alliance/build-system-tool-branch-alias-validation)
-[![Upstream Build Status](http://img.shields.io/travis/contao-community-alliance/build-system-tool-branch-alias-validation/develop.svg?style=flat-square)](https://travis-ci.org/contao-community-alliance/build-system-tool-branch-alias-validation)
-[![License](http://img.shields.io/packagist/l/contao-community-alliance/build-system-tool-branch-alias-validation.svg?style=flat-square)](https://github.com/contao-community-alliance/build-system-tool-branch-alias-validation/blob/master/LICENSE)
-[![Downloads](http://img.shields.io/packagist/dt/contao-community-alliance/build-system-tool-branch-alias-validation.svg?style=flat-square)](https://packagist.org/packages/contao-community-alliance/build-system-tool-branch-alias-validation)
+[![Version](http://img.shields.io/packagist/v/phpcq/branch-alias-validation.svg?style=flat-square)](https://packagist.org/packages/phpcq/branch-alias-validation)
+[![Stable Build Status](http://img.shields.io/travis/phpcq/branch-alias-validation/master.svg?style=flat-square)](https://travis-ci.org/phpcq/branch-alias-validation)
+[![Upstream Build Status](http://img.shields.io/travis/phpcq/branch-alias-validation/develop.svg?style=flat-square)](https://travis-ci.org/phpcq/branch-alias-validation)
+[![License](http://img.shields.io/packagist/l/phpcq/branch-alias-validation.svg?style=flat-square)](https://github.com/phpcq/branch-alias-validation/blob/master/LICENSE)
+[![Downloads](http://img.shields.io/packagist/dt/phpcq/branch-alias-validation.svg?style=flat-square)](https://packagist.org/packages/phpcq/branch-alias-validation)
 
 Validate branch alias against latest tag.
 =========================================
@@ -14,7 +14,7 @@ Usage
 
 Add to your `composer.json` in the `require-dev` section:
 ```
-"contao-community-alliance/build-system-tool-branch-alias-validation": "~1.0"
+"phpcq/branch-alias-validation": "~1.0"
 ```
 
 Call the binary:

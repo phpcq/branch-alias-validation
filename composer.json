@@ -1,5 +1,5 @@
 {
-    "name": "contao-community-alliance/build-system-tool-branch-alias-validation",
+    "name": "phpcq/branch-alias-validation",
     "description": "Validation tool to ensure that all branches are ahead of the most recent tag.",
     "license": "MIT",
     "authors": [
@@ -11,33 +11,33 @@
         },
         {
             "name":"Tristan Lins",
-            "email":"tristan.lins@bit3.de",
-            "homepage":"http://bit3.de",
+            "email":"tristan@lins.io",
+            "homepage":"https://tristan.lins.io",
             "role":"Developer"
         }
     ],
     "support":{
-        "issues":"https://github.com/contao-community-alliance/build-system-tool-branch-alias-validation/issues",
-        "irc":"irc://irc.freenode.org/contao.dev",
-        "source":"https://github.com/contao-community-alliance/build-system-tool-branch-alias-validation"
+        "issues":"https://github.com/phpcq/branch-alias-validation/issues",
+        "source":"https://github.com/phpcq/branch-alias-validation",
+        "irc": "irc://irc.freenode.org/phpcq"
     },
     "autoload": {
         "psr-4": {
-            "ContaoCommunityAlliance\\BuildSystem\\Tool\\BranchAliasValidation\\" : "src"
+            "PhpCodeQuality\\BranchAliasValidation\\" : "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ContaoCommunityAlliance\\BuildSystem\\Tool\\BranchAliasValidation\\Test\\" : "tests"
+            "PhpCodeQuality\\BranchAliasValidation\\Test\\" : "tests"
         }
     },
     "require": {
         "php": ">=5.3.4",
-        "contao-community-alliance/build-system-repository-git": "~1.0",
+        "bit3/git-php": "~1.0",
         "symfony/console": "~2.3"
     },
     "require-dev": {
-        "contao-community-alliance/build-system-all-tasks": "~1.0"
+        "phpcq/all-tasks": "~1.0"
     },
     "extra": {
         "branch-alias": {

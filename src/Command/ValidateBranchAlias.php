@@ -1,17 +1,27 @@
 <?php
 
 /**
- * This file is part of the Contao Community Alliance Build System tools.
+ * This file is part of phpcq/branch-alias-validation.
  *
- * @copyright 2014 Contao Community Alliance <https://c-c-a.org>
- * @author    Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @package   contao-community-alliance/build-system-tool-branch-alias-validation
- * @license   MIT
- * @link      https://c-c-a.org
+ * (c) 2014 Christian Schiffler, Tristan Lins
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * This project is provided in good faith and hope to be usable by anyone.
+ *
+ * @package    phpcq/branch-alias-validation
+ * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
+ * @author     Tristan Lins <tristan@lins.io>
+ * @copyright  Christian Schiffler <c.schiffler@cyberspectrum.de>, Tristan Lins <tristan@lins.io>
+ * @link       https://github.com/phpcq/branch-alias-validation
+ * @license    https://github.com/phpcq/branch-alias-validation/blob/master/LICENSE MIT
+ * @filesource
  */
-namespace ContaoCommunityAlliance\BuildSystem\Tool\BranchAliasValidation\Command;
 
-use ContaoCommunityAlliance\BuildSystem\Repository\GitRepository;
+namespace PhpCodeQuality\BranchAliasValidation\Command;
+
+use Bit3\GitPhp\GitRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,7 +30,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Class ValidateBranchAlias
  *
- * @package ContaoCommunityAlliance\BuildSystem\Tool\BranchAliasValidation\Command
+ * @package PhpCodeQuality\BranchAliasValidation\Command
  */
 class ValidateBranchAlias extends Command
 {
@@ -44,7 +54,7 @@ class ValidateBranchAlias extends Command
     protected function configure()
     {
         $this
-            ->setName('ccabs:tools:validate-branch-alias')
+            ->setName('phpcq:validate-branch-alias')
             ->setDescription('Validate that all branches are ahead of the most recent tag.')
             ->addArgument(
                 'git-dir',
