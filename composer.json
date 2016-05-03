@@ -37,11 +37,12 @@
         "symfony/console": "~2.3"
     },
     "require-dev": {
-        "phpcq/all-tasks": "~1.0"
+        "phpcq/all-tasks": "~1.1"
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "1.x-dev"
+            "dev-master": "1.1.x-dev",
+            "dev-develop": "1.2.x-dev"
         }
     },
     "bin": ["bin/validate-branch-alias.php"],
