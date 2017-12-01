@@ -22,13 +22,14 @@
 namespace PhpCodeQuality\BranchAliasValidation\Test\Command;
 
 use PhpCodeQuality\BranchAliasValidation\Command\ValidateBranchAlias;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ValidateBranchAliasTest
  *
  * @package PhpCodeQuality\BranchAliasValidation\Test\Command
  */
-class ValidateBranchAliasTest extends \PHPUnit_Framework_TestCase
+class ValidateBranchAliasTest extends TestCase
 {
     /**
      * Validate the given branch.
