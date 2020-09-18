@@ -3,7 +3,7 @@
 /**
  * This file is part of phpcq/branch-alias-validation.
  *
- * (c) 2014 Christian Schiffler, Tristan Lins
+ * (c) 2014-2020 Christian Schiffler, Tristan Lins
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,8 @@
  * @package    phpcq/branch-alias-validation
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     Tristan Lins <tristan@lins.io>
- * @copyright  2014-2016 Christian Schiffler <c.schiffler@cyberspectrum.de>, Tristan Lins <tristan@lins.io>
+ * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @copyright  2014-2020 Christian Schiffler <c.schiffler@cyberspectrum.de>, Tristan Lins <tristan@lins.io>
  * @license    https://github.com/phpcq/branch-alias-validation/blob/master/LICENSE MIT
  * @link       https://github.com/phpcq/branch-alias-validation
  * @filesource
@@ -25,9 +26,7 @@ use PhpCodeQuality\BranchAliasValidation\Command\ValidateBranchAlias;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class ValidateBranchAliasTest
- *
- * @package PhpCodeQuality\BranchAliasValidation\Test\Command
+ * @covers \PhpCodeQuality\BranchAliasValidation\Command\ValidateBranchAlias
  */
 class ValidateBranchAliasTest extends TestCase
 {
